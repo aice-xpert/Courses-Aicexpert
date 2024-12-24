@@ -1,0 +1,171 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+.card {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.form-check-input {
+    transition: transform 0.3s ease;
+}
+
+.form-check-input:checked {
+    transform: scale(1.2);
+}
+
+.assignment-card {
+    animation: fadeInUp 0.5s ease both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Advanced styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .navbar-collapse {
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 240px;
+    }
+}
+
+.assignment-card .card-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.assignment-card .card-body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.15), transparent 50%);
+    transition: transform 0.5s ease;
+    transform: translate3d(0, 0, 0);
+}
+
+.assignment-card:hover .card-body::before {
+    transform: translate3d(50%, 50%, 0);
+}
+
+.assignment-card .card-body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.assignment-card:hover .card-body::after {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.assignment-card {
+    animation: scaleUp 0.3s ease;
+}
+
+.card-title {
+    animation: bounce 1s ease;
+}
+
+.navbar-brand {
+    animation: slideIn 0.5s ease;
+}

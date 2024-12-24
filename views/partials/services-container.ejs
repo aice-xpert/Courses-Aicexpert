@@ -1,0 +1,178 @@
+<style>
+    #trick7 {
+        opacity: 0;
+        /* Start hidden */
+        transform: translateY(-100px);
+        /* Start from the right */
+        transition: opacity 2.0s ease, transform 2.0s ease;
+        /* Smooth transition */
+    }
+
+    #trick7.visible {
+        opacity: 1;
+        /* Fade in */
+        transform: translateX(0);
+        /* Move to original position */
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heading = document.querySelector('#trick7');
+
+        const options = {
+            root: null,
+            threshold: 0.9 // Adjust as needed
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heading.classList.add('visible');
+                    observer.unobserve(heading); // Stop observing after the animation is triggered
+                }
+            });
+        }, options);
+
+        observer.observe(heading);
+    });
+</script>
+
+
+
+<style>
+    #trick8 {
+        opacity: 0;
+        /* Start hidden */
+        transform: translateY(100px);
+        /* Start from the right */
+        transition: opacity 2.0s ease, transform 2.0s ease;
+        /* Smooth transition */
+    }
+
+    #trick8.visible {
+        opacity: 1;
+        /* Fade in */
+        transform: translateX(0);
+        /* Move to original position */
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heading = document.querySelector('#trick8');
+
+        const options = {
+            root: null,
+            threshold: 0.9 // Adjust as needed
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heading.classList.add('visible');
+                    observer.unobserve(heading); // Stop observing after the animation is triggered
+                }
+            });
+        }, options);
+
+        observer.observe(heading);
+    });
+</script>
+<div class="section section-services-links">
+    <div class="container">
+        <div class="services-links__blocks">
+            <div class="services-links__block">
+                <div class="h3 services-links__header">
+                    STEM assignments
+                </div>
+                <ul class="services-links__list list--clean" id="trick7">
+                    <li><a href="/stem-assignments/programming-assignments-help">Programming homework help</a></li>
+
+                    <li><a href="/stem-assignments/java-assignments-help">JAVA homework help</a></li>
+
+                    <li><a href="/stem-assignments/python-assignments-help">Python homework help</a></li>
+
+                    <li><a href="/stem-assignments/matlab-assignments-help">MATLAB homework help</a></li>
+
+                    <li><a href="/stem-assignments/computer-science-assignments-help">Computer science homework help</a>
+                    </li>
+
+                    <li><a href="/stem-assignments/php-assignments-help">PHP homework help</a></li>
+
+                    <li><a href="/stem-assignments/javascript-assignments-help">Javascript assignment help</a></li>
+
+                    <li><a href="/stem-assignments/engineering-assignments-help">Engineering assignment help</a></li>
+
+                    <li><a href="/stem-assignments/html-assignments-help">HTML assignment help</a></li>
+
+                    <li><a href="/stem-assignments/cpp-assignments-help">C++ assignment help</a></li>
+
+                    <li><a href="/stem-assignments/calculus-assignments-help">Calculus homework help</a></li>
+
+                    <li><a href="/stem-assignments/math-assignments-help">Do math homework for me</a></li>
+
+                    <li><a href="/stem-assignments/physics-assignments-help">Physics homework help</a></li>
+
+                    <li><a href="/stem-assignments/biology-assignments-help">Biology homework help</a></li>
+
+                    <li><a href="/stem-assignments/chemistry-assignments-help">Chemistry homework help</a></li>
+
+                    <li><a href="/stem-assignments/csharp-assignments-help">C# assignment help</a></li>
+
+                    <li><a href="/stem-assignments/database-assignments-help">DataBase assignment help</a></li>
+
+                    <li><a href="/stem-assignments/sql-assignments-help">SQL assignment help</a></li>
+
+                    <li><a href="/stem-assignments/r-studio-assignments-help">R Studio homework help</a></li>
+
+                    <li><a href="/stem-assignments/data-science-assignments-help">Data Science homework help</a></li>
+
+                    <li><a href="/stem-assignments/excel-assignments-help">Excel homework help</a></li>
+
+                    <li><a href="/stem-assignments/do-exam-for-me-assignments-help">Do Exam for me</a></li>
+                </ul>
+            </div>
+            <div class="services-links__block">
+                <div class="h3 services-links__header">
+                    Academic writing
+                </div>
+                <ul class="services-links__list list--clean" id="trick8">
+                    <li><a href="/academic-writing/assignment-writing-services">Assignment writing service</a></li>
+
+                    <li><a href="/academic-writing/assignments-for-money">Assignments for money</a></li>
+
+                    <li><a href="/academic-writing/pay-for-homework-help">Pay for homework help</a></li>
+
+                    <li><a href="/academic-writing/college-assignments-help">College assignments help</a></li>
+
+                    <li><a href="/academic-writing/assignment-editing">Assignment editing</a></li>
+
+                    <li><a href="/academic-writing/english-assignments-help">English homework help</a></li>
+
+                    <li><a href="/academic-writing/psychology-assignments-help">Psychology homework help</a></li>
+
+                    <li><a href="/academic-writing/mba-assignments-help">MBA assignment help</a></li>
+
+                    <li><a href="/academic-writing/buy-assignments">Buy assignment</a></li>
+
+                    <li><a href="/academic-writing/business-assignments-help">Business assignment help</a></li>
+
+                    <li><a href="/academic-writing/economics-assignments-help">Economics homework help</a></li>
+
+                    <li><a href="/academic-writing/accounting-assignments-help">Accounting homework help</a></li>
+
+                    <li><a href="/academic-writing/statistics-assignments-help">Statistics homework help</a></li>
+
+                    <li><a href="/academic-writing/history-assignments-help">History homework help</a></li>
+
+                    <li><a href="/academic-writing/nursing-assignments-help">Nursing assignment help</a></li>
+
+                    <li><a href="/academic-writing/write-my-coursework">Write my coursework</a></li>
+
+                    <li><a href="/academic-writing/law-assignments-help">Law assignment help</a></li>
+
+                    <li><a href="/academic-writing/finance-assignments-help">Finance homework help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

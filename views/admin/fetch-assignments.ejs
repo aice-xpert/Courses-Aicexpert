@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard | All Assignments</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <link rel="icon" href="/images/logo.jpg" type="image/jpeg">
+            
+        
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background: #06234A;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-size: small;
+            transition: all 0.3s ease;
+        }
+        
+        .container:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #06234A;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .filter-form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter-form select {
+            padding: 10px;
+            border: 2px solid #06234A;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            color: #06234A;
+            transition: all 0.3s;
+            margin-right: 41px;
+        }
+
+        .filter-form select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .filter-form {
+            color: #06234A;
+            margin-left: 64px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            background-color: #06234A;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            color: #06234A;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            background-color: #007bff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            th, td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            th, td {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+        }
+        
+        tr {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+    </head>
+
+    <body>
+
+    <%- include("../partials/admin-header.ejs") %>
+
+    <div class="container">
+
+        <h1>All Assignments</h1>
+
+        <form class="filter-form" method="get" action="/fetch-all-assignments">
+            <div class="form-group">
+
+                <label for="status-filter"><b>Filter by Status:</b></label>
+                
+                <select id="status-filter" name="status-filter" onchange="this.form.submit()">
+                    
+                    <option value="all" <%= (statusFilter === 'all') ? 'selected' : '' %>>All</option>
+                    
+                    <option value="Not Started" <%= (statusFilter === 'Not Started') ? 'selected' : '' %>>Not Started</option>
+                    
+                    <option value="Paid" <%= (statusFilter === 'Paid') ? 'selected' : '' %>>Paid</option>
+                    
+                    <option value="completed" <%= (statusFilter === 'completed') ? 'selected' : '' %>>Completed</option>
+                    
+                    <option value="in-progress" <%= (statusFilter === 'in-progress') ? 'selected' : '' %>>In Progress</option>
+                
+                </select>
+            
+            </div>
+
+
+
+
+            <!-- Assignment Type Filters Section -->
+
+            <div class="form-group">    
+                
+                <label for="assignmentType"><b>Type of Assignment:</b></label>
+                
+                <select id="assignmentType" name="assignmentType" onchange="this.form.submit()">
+                    
+                    <option value="all" <%= (assignmentTypeFilter === 'all') ? 'selected' : '' %>>All Types</option>
+                    
+                    <option value="English Writing Based Assignments" <%= (assignmentTypeFilter === 'English Writing Based Assignments') ? 'selected' : '' %>>English Writing Based Assignments</option>
+                    
+                    <option value="Research Paper (Thesis)" <%= (assignmentTypeFilter === 'Research Paper (Thesis)') ? 'selected' : '' %>>Research Paper (Thesis)</option>
+                    
+                    <option value="FYP Based" <%= (assignmentTypeFilter === 'FYP Based') ? 'selected' : '' %>>FYP Based</option>
+                    
+                    <option value="All Types of Presentations" <%= (assignmentTypeFilter === 'All Types of Presentations') ? 'selected' : '' %>>All Types of Presentations</option>
+                    
+                    <option value="App Development" <%= (assignmentTypeFilter === 'App Development') ? 'selected' : '' %>>App Development</option>
+                    
+                    <option value="Game Development" <%= (assignmentTypeFilter === 'Game Development') ? 'selected' : '' %>>Game Development</option>
+                    
+                    <option value="Web Development" <%= (assignmentTypeFilter === 'Web Development') ? 'selected' : '' %>>Web Development</option>
+                    
+                    <option value="Content Writing for Any Platform" <%= (assignmentTypeFilter === 'Content Writing for Any Platform') ? 'selected' : '' %>>Content Writing for Any Platform</option>
+                    
+                    <option value="Research" <%= (assignmentTypeFilter === 'Research') ? 'selected' : '' %>>Research</option>
+                    
+                    <option value="Semester/Term Project" <%= (assignmentTypeFilter === 'Semester/Term Project') ? 'selected' : '' %>>Semester/Term Project</option>
+                    
+                    <option value="Professional Web App" <%= (assignmentTypeFilter === 'Professional Web App') ? 'selected' : '' %>>Professional Web App</option>
+                    
+                    <option value="Technical Report" <%= (assignmentTypeFilter === 'Technical Report') ? 'selected' : '' %>>Technical Report</option>
+                    
+                    <option value="Lab Report" <%= (assignmentTypeFilter === 'Lab Report') ? 'selected' : '' %>>Lab Report</option>
+                    
+                    <option value="Case Study" <%= (assignmentTypeFilter === 'Case Study') ? 'selected' : '' %>>Case Study</option>
+                    
+                    <option value="Mathematics/Physics Based Assignments" <%= (assignmentTypeFilter === 'Mathematics/Physics Based Assignments') ? 'selected' : '' %>>Mathematics/Physics Based Assignments</option>
+                    
+                    <option value="Programming Tutoring" <%= (assignmentTypeFilter === 'Programming Tutoring') ? 'selected' : '' %>>Programming Tutoring</option>
+                    
+                    <option value="All Types of Programming Assignments (C/C++, Python, Java, JavaScript, Assembly Language etc)" <%= (assignmentTypeFilter === 'All Types of Programming Assignments (C/C++, Python, Java, JavaScript, Assembly Language etc)') ? 'selected' : '' %>>All Types of Programming Assignments (C/C++, Python, Java, JavaScript, Assembly Language etc)</option>
+                    
+                    <option value="Article" <%= (assignmentTypeFilter === 'Article') ? 'selected' : '' %>>Article</option>
+                    
+                    <option value="Review Paper" <%= (assignmentTypeFilter === 'Review Paper') ? 'selected' : '' %>>Review Paper</option>
+                    
+                    <option value="Creative Writing" <%= (assignmentTypeFilter === 'Creative Writing') ? 'selected' : '' %>>Creative Writing</option>
+
+                </select>
+
+            </div>
+
+        </form>
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Assignment ID</th>
+                    <th>Type</th>
+                    <th>Email</th>
+                    <th>WhatsApp</th>
+                    <th>Payment Status</th>
+                    <th>Status</th>
+                    <th>Assigned To</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <% assignments.forEach((assignment, index) => { %>
+        
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><a href="/admin-assignment/<%= assignment._id %>"><%= assignment._id %></a></td>
+                        <td><%= assignment.assignmentType %></td>
+                        <td><%= assignment.email %></td>
+
+                        <td>
+                            <a href="https://wa.me/<%= assignment.whatsapp %>" target="_blank"><%= assignment.whatsapp || 'N/A' %></a>
+                        </td>
+                        
+                        <td><%= assignment.payment_status %></td>
+                        <td><%= assignment.status %></td>
+                        <td><%= assignment.developer || 'Not Assigned' %></td>
+                    </tr>
+        
+                <% }) %>
+                
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const assignment = {
+                _id: '<%= assignments._id %>',
+                assignmentType: '<%= assignments.assignmentType %>',
+                status: '<%= assignments.status %>',
+                exactDeadline: '<%= assignments.exactDeadline %>',
+                additionalDetails: '<%= assignments.additionalDetails %>',
+                createdAt: '<%= assignments.createdAt %>',
+                email: '<%= assignments.email %>',
+                whatsapp: '<%= assignments.whatsapp %>',
+                wellCommentedCode: '<%= assignments.wellCommentedCode %>',
+                vivaPreparation: '<%= assignments.vivaPreparation %>',
+                noOpenSource: '<%= assignments.noOpenSource %>',
+                programmingLanguage: '<%= assignments.programmingLanguage %>'
+            };
+
+            const message = `*Hi, this is the official WhatApp Business Number of Do Task For Me.com*`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/${assignments.whatsapp}?text=${encodedMessage}`;
+            document.getElementById('whatsapp-link').setAttribute('href', whatsappLink);
+        });
+    
+    </script>
+
+
+</body>
+</html>

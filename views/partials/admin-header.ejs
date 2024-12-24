@@ -1,0 +1,62 @@
+<style>
+
+        nav {
+            background-color: #06234A;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #60f881;
+        }
+
+        nav .navbar-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                padding: 10px 0;
+            }
+        }
+
+</style>
+
+
+<nav>
+
+    <span class="navbar-brand" style="height: 70px; margin-top: -18px;"><a href="/"><img src="/images/logo2.png" alt="" width="72px" height="41px"></a></span>
+    
+    <div>
+
+        <a onclick="goBack()" style="cursor: pointer;">Dashboard</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        
+        <a href="/fetch-all-assignments" style="margin-left: 20px;">Assignments</a>
+        
+        <a href="/fetch-users" style="margin-left: 20px;">Users</a>
+    </div>
+
+</nav>

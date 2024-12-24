@@ -1,0 +1,40 @@
+<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+
+<style>
+  .cursor-effect {
+    background-color: white !important;
+    border: none !important;
+  }
+</style>
+
+
+<script type="module">
+  import { followingDotCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  function initCursor() {
+    const cursor = new followingDotCursor();
+  }
+
+  window.addEventListener("load", (event) => {
+    const cursorElement = document.querySelector('.cursor-effect');
+    
+    if (cursorElement) {
+      cursorElement.classList.add('cursor-effect');
+    }
+
+    if (window.innerWidth >= 900) {
+      initCursor();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 900) {
+      cursorElement.style.display = 'none';
+    } 
+    
+    else {
+      initCursor();
+    }
+  });
+
+</script>

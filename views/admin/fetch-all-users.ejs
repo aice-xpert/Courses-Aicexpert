@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | All Users</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpeg">
+    
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background: #06234A;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-size: small;
+            transition: all 0.3s ease;
+        }
+        
+        .container:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #06234A;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .filter-form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter-form select {
+            padding: 10px;
+            border: 2px solid #06234A;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            color: #06234A;
+            transition: all 0.3s;
+            margin-right: 41px;
+            margin-bottom: 10px;
+        }
+
+        .filter-form select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            background-color: #06234A;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            color: #06234A;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            background-color: #007bff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            th, td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            th, td {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+        }
+        
+        tr {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <%- include("../partials/admin-header.ejs") %>
+
+    <div class="container">
+        
+        <h1>All Users</h1>
+        
+        <form class="filter-form" method="get" action="/fetch-users">
+            
+            <label for="sortBy">Sort by:</label>
+            
+            <select id="sortBy" name="sortBy" onchange="this.form.submit()">
+                <option value="totalAssignments" <%= (sortBy === 'totalAssignments') ? 'selected' : '' %>>Maximum Orders</option>
+                
+                <option value="dateJoined" <%= (sortBy === 'dateJoined') ? 'selected' : '' %>>Default</option>
+            </select>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>WhatsApp Number</th>
+                    <th>Total Assignments Ordered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach((user, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.whatsapp || 'N/A' %></td>
+                    <td><%= user.totalAssignments %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        
+        window.addEventListener('resize', function() {
+            document.body.style.fontSize = window.innerWidth < 600 ? '14px' : '16px';
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+    </script>
+
+</body>
+</html>

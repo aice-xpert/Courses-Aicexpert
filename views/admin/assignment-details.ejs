@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Details</title>
+    <link rel="stylesheet" href="/path/to/bootstrap.min.css">
+    <link rel="stylesheet" href="/path/to/custom-styles.css">
+
+    <style>
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            color: #06234A;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .card {
+            background: #f0f4f8;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h1 {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #06234A;
+        }
+
+        .card p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #06234A;
+            font-weight: 500;
+        }
+
+        .card p strong {
+            color: #06234A;
+        }
+
+        .task-link {
+            color: #06234A;
+            text-decoration: underline;
+        }
+
+        .form-check {
+            margin: 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .form-check input[type="checkbox"]:checked {
+            background-color: #06234A;
+            border-color: #06234A;
+        }
+
+        .form-check label {
+            color: #06234A;
+            font-weight: 600;
+        }
+
+        .form-control {
+            padding: 10px;
+            border: 2px solid #06234A;
+            border-radius: 8px;
+            width: 100%;
+            transition: 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(6, 35, 74, 0.2);
+            border-color: #06234A;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #06234A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-group {
+            width: 12%;
+            margin-top: 20px;
+        }
+
+        .form-group input {
+            margin-top: 20px;
+        }
+
+        .developer-form .form-group {
+            width: 240px;
+            margin-top: 20px;
+        }
+
+        .developer-form .form-group select {
+            margin-top: 20px;
+        }
+ 
+        .btn:hover {
+            background-color: #044367;
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #20b357;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <%- include("../partials/admin-header.ejs") %>
+
+    <div class="container">
+        <div id="assignments-container" class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            
+                            <h1 class="card-title"><%= assignment.assignmentType %></h1>
+                            
+                            <p><strong>Task ID:</strong> <a href="/admin-assignment/<%= assignment._id %>" class="task-link"><%= assignment._id %></a></p>
+                            
+                            <p class="card-text">Exact Deadline: <%= assignment.exactDeadline %></p>
+                            
+                            <p class="card-text">Email: <%= assignment.email %></p>
+                            
+                            <p class="card-text">WhatsApp Number: <%= assignment.whatsapp %></p>
+                            
+                            <p class="card-text">Additional Details: <%= assignment.additionalDetails %></p>
+                            
+                            <p class="card-text">Well Commented Code: <%= assignment.wellCommentedCode %></p>
+                            
+                            <p class="card-text">Viva Preparation: <%= assignment.vivaPreparation %></p>
+                            
+                            <p class="card-text">No Open Source: <%= assignment.noOpenSource %></p>
+                            
+                            <p class="card-text">Programming Language: <%= assignment.programmingLanguage %></p>
+                            
+                            <p class="card-text">Web Development Type: <%= assignment.webDevelopmentType %></p>
+                            
+                            <p class="card-text">Full Stack Framework: <%= assignment.fullStackFramework %></p>
+                            
+                            <p class="card-text">Top Programmer: <%= assignment.topProgrammer %></p>
+                            
+                            <p class="card-text">Total Cost (Tentative): $<%= assignment.totalCost.toFixed(2) %></p>
+                            
+                            <p class="card-text">Status: <%= assignment.status %></p>
+ 
+                            <p class="card-text payment-status-container">Payment Status: <%= assignment.payment_status %> <% if (assignment.payment_status === 'paid') { %> <span class="tag">Payment Done</span> <% } %></p>
+
+                            <p><strong>File URL:</strong> <a href="<%= assignment.fileUrl %>" target="_blank">View File</a></p>
+
+                            <hr>    
+                            <br>
+                            <br>            
+
+                            <h4 class="card-text"><b>Assigned To:  <%= assignment.developer %> </b></h4>
+                                        
+                            <h4 class="card-text"><b>Task Submission URL: <a href="<%= assignment.taskSubmissionUrl %>" target="_blank">Our Work</a></b></h4>
+
+                            <br>
+                            <br>
+                            <hr>
+                            <br>
+
+                            <div class="form-check">
+                                
+                                <input class="form-check-input work-started-checkbox" type="checkbox" value="" id="Started-<%= assignment._id %>" <%= assignment.status === 'Started' ? 'checked' : '' %> data-id="<%= assignment._id %>">
+                                
+                                <label class="form-check-label" for="Started-<%= assignment._id %>">Work Started</label>
+ 
+                                <input class="form-check-input work-ended-checkbox" type="checkbox" value="" id="Completed-${assignment._id}" ${assignment.status === 'Completed' ? 'checked' : ''} data-id="${assignment._id}">
+
+                                <label class="form-check-label" for="Completed-${assignment._id}">Work Completed</label>
+
+                            </div>
+                            
+                            <div class="form-check">
+                                
+                                <input class="form-check-input payment-status-checkbox" type="checkbox" value="" id="Paid-<%= assignment._id %>" <%= assignment.payment_status === 'Paid' ? 'checked' : '' %> data-id="<%= assignment._id %>">
+                                
+                                <label class="form-check-label" for="Paid-<%= assignment._id %>">Mark as Paid</label>
+                            
+                            </div>
+                            
+                            <br>
+
+                            <hr>
+
+                            <!-- Cost Update Form -->
+
+                            <form class="cost-form">
+                                            
+                                <div class="form-group">
+                                    
+                                    <label for="cost-<%= assignment._id %>">Update Total Cost:</label>
+                                    
+                                    <input type="number" id="cost-<%= assignment._id %>" class="form-control" data-id="<%= assignment._id %>" step="0.01" min="0" />
+
+                                </div>
+                                
+                                <button onclick="reloadPage()" type="button" class="btn btn-secondary update-cost-btn" data-id="<%= assignment._id %>">Update Cost</button>
+                                
+                            </form>
+
+                            <br>
+
+                            <hr>
+                            
+                            <form class="developer-form">
+                                <div class="form-group">
+                                    
+                                    <label for="developer-<%= assignment._id %>">Task Assigned to:</label>
+                                    <select id="developer-<%= assignment._id %>" class="form-control" data-id="<%= assignment._id %>">
+                                        
+                                        <option value="">Select Developer</option>
+                                        
+                                        <option value="Rana Waqas Ali">Rana Waqas Ali</option>
+                                        
+                                        <option value="Talha Khalid">Talha Khalid</option>
+                                    
+                                    </select>
+                                
+                                </div>
+                                
+                                <button onclick="reloadPage()" type="button" class="btn btn-primary assign-developer-btn" data-id="<%= assignment._id %>">Assign to Developer</button>
+                            
+                            </form>
+                            
+                            <br>
+                            <hr>
+                            <br>
+                            
+                            <h4>Send the completed work file to Client</h4>
+                            <form id="assignmentForm" action="/admin/completed-work/submission" method="POST" enctype="multipart/form-data">
+                                
+                                <input type="hidden" name="assignmentId" value="<%= assignment._id %>">
+                                
+                                <input type="file" name="file" accept="*/*" required>
+                                
+                                <button type="submit" class="submit-btn">Send to User</button>
+                                
+                            </form>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <a id="whatsapp-link" target="_blank" style="text-decoration: none;">
+                <button class="whatsapp-button" style="display: flex; align-items: center; padding: 10px; background-color: #25D366; color: white; border: none; border-radius: 5px;align-items: center; cursor: pointer;">
+                    <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Contact on WhatsApp
+                </button>
+            </a>
+       
+        </div>
+
+
+
+
+
+
+    <script src="/path/to/bootstrap.bundle.min.js"></script>
+    
+    <script src="/path/to/custom-scripts.js"></script>
+
+    <script>
+        
+        function reloadPage() {
+            location.reload();
+        }
+
+    </script>
+
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const assignment = {
+                _id: '<%= assignment._id %>',
+                assignmentType: '<%= assignment.assignmentType %>',
+                status: '<%= assignment.status %>',
+                exactDeadline: '<%= assignment.exactDeadline %>',
+                additionalDetails: '<%= assignment.additionalDetails %>',
+                createdAt: '<%= assignment.createdAt %>',
+                email: '<%= assignment.email %>',
+                whatsapp: '<%= assignment.whatsapp %>',
+                wellCommentedCode: '<%= assignment.wellCommentedCode %>',
+                vivaPreparation: '<%= assignment.vivaPreparation %>',
+                noOpenSource: '<%= assignment.noOpenSource %>',
+                programmingLanguage: '<%= assignment.programmingLanguage %>'
+            };
+
+            const message = `*Hi, this is the official WhatApp Business Number of Do Task For Me.com*`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/${assignment.whatsapp}?text=${encodedMessage}`;
+            document.getElementById('whatsapp-link').setAttribute('href', whatsappLink);
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.work-started-checkbox').forEach(checkbox => {
+                
+                checkbox.addEventListener('change', function () {
+                    const assignmentId = this.getAttribute('data-id');
+                    const isChecked = this.checked;
+                    
+                    fetch(`/admin/update-status/${assignmentId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ status: isChecked ? 'Started' : 'Not Started' })
+                    })
+                    
+                    .then(response => response.json())
+                    
+                    .then(data => {
+                        if (data.message === 'Status updated') {
+                            alert('Status updated and email sent to user');
+                            this.disabled = true;
+                            this.closest('.form-check').classList.add('frozen');
+                        } 
+                        
+                        else {
+                            alert('Error updating status');
+                        }
+                    })
+                    
+                    .catch(error => console.error('Error updating status:', error));
+                });
+            });
+
+
+
+
+            document.querySelectorAll('.work-ended-checkbox').forEach(checkbox => {
+                    
+                    checkbox.addEventListener('change', function () {
+                        const assignmentId = this.getAttribute('data-id');
+                        const isChecked = this.checked;
+                
+                        fetch(`/admin/update-completion-status/${assignmentId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                
+                            body: JSON.stringify({ status: isChecked ? 'Completed' : 'Not Completed' })
+                        })
+                
+                        .then(response => response.json())
+                   
+                        .then(data => {
+                
+                            if (data.message === 'Status updated') {
+                                alert('Status updated and email sent to user');
+
+                                this.disabled = true;
+                                this.closest('.form-check').classList.add('frozen');
+                            } 
+                            
+                            else {
+                                alert('Error updating status');
+                            }
+                        })
+                        
+                        .catch(error => console.error('Error updating status:', error));
+
+                    });
+                });
+                
+
+
+
+            document.querySelectorAll('.payment-status-checkbox').forEach(checkbox => {
+                
+                checkbox.addEventListener('change', function () {
+                    const assignmentId = this.getAttribute('data-id');
+                    const isChecked = this.checked;
+                    
+                    fetch(`/admin/update-payment-status/${assignmentId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ payment_status: isChecked ? 'Paid' : 'Not Paid Yet' })
+                    })
+                    
+                    .then(response => response.json())
+                    
+                    .then(data => {
+                    
+                        if (data.message === 'Status updated') {
+                            alert('Payment status updated and email sent to user');
+                            const tagContainer = this.closest('.card-body').querySelector('.payment-status-container');
+                            
+                            if (isChecked) {
+                                
+                                if (!tagContainer.querySelector('.tag')) {
+                                    const newTag = document.createElement('span');
+                                    newTag.classList.add('tag');
+                                    newTag.textContent = 'Payment Done';
+                                    tagContainer.appendChild(newTag);
+                                }
+                            } 
+                            
+                            else {
+                                
+                                const tag = tagContainer.querySelector('.tag');
+                                
+                                if (tag) {
+                                    tag.remove();
+                                }
+                            }
+
+                            this.disabled = true;
+                            this.closest('.form-check').classList.add('frozen');
+                        } 
+                        
+                        else {
+                            alert('Error updating payment status');
+                        }
+                    })
+                    
+                    .catch(error => console.error('Error updating payment status:', error));
+                });
+            });
+
+
+
+
+            document.querySelectorAll('.update-cost-btn').forEach(button => {
+            
+                button.addEventListener('click', function () {
+            
+                const assignmentId = this.getAttribute('data-id');
+                const costInput = document.getElementById(`cost-${assignmentId}`);
+                const cost = costInput.value;
+            
+                if (isNaN(cost) || cost < 0) {
+                    alert('Please enter a valid cost');
+                    return;
+                }
+            
+                fetch(`/admin/update-cost/${assignmentId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ cost: parseFloat(cost) })
+                })
+            
+                .then(response => response.json())
+                
+                .then(data => {
+                    
+                    if (data.message === 'Cost updated') {
+                        
+                        alert('Cost updated successfully');
+                        const cardBody = this.closest('.card-body');
+                        let costInfo = cardBody.querySelector('.cost-info');
+                        location.reload();
+                    
+                        if (costInfo) {
+                            costInfo.textContent = `Cost: $${cost}`;
+                        } 
+                        
+                        else {
+                            // costInfo = document.createElement('p');
+                            // costInfo.classList.add('cost-info');
+                            // costInfo.textContent = `Cost: $${cost}`;
+                            cardBody.appendChild(costInfo);
+                        }
+                    
+                        const form = cardBody.querySelector('.cost-form');
+                        
+                        if (form) {
+                            form.remove();
+                        }
+                    
+                        this.disabled = true;
+                        costInput.disabled = true;
+                    } 
+                    
+                    else {
+                        alert(data.message);
+                    }
+                })
+            
+                .catch(error => console.error('Error updating cost:', error));
+                
+            });
+        });
+
+
+
+
+            document.querySelectorAll('.assign-developer-btn').forEach(button => {
+                
+                button.addEventListener('click', function () {
+                    const assignmentId = this.getAttribute('data-id');
+                
+                    const developerSelect = document.getElementById(`developer-${assignmentId}`);
+                
+                    const developerName = developerSelect.value;
+                
+                    if (!developerName) {
+                        alert('Please select a developer');
+                        return;
+                    }
+                    
+                    fetch(`/admin/update-developer/${assignmentId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ developer: developerName })
+                    })
+
+                    .then(response => response.json())
+                    
+                    .then(data => {
+                    
+                        if (data.message === 'Developer updated') {
+                            alert('Developer assigned successfully');
+                            const cardBody = this.closest('.card-body');
+                            const developerInfo = cardBody.querySelector('.developer-info');
+                            
+                            if (developerInfo) {
+                                developerInfo.textContent = `Developer: ${developerName}`;
+                            } 
+                            
+                            else {
+                                const newInfo = document.createElement('p');
+                                newInfo.classList.add('developer-info');
+                                newInfo.textContent = `Developer: ${developerName}`;
+                                cardBody.appendChild(newInfo);
+                            }
+                            
+                            const form = cardBody.querySelector('.developer-form');
+                            
+                            if (form) {
+                                form.remove();
+                            }
+                            
+                            this.disabled = true;
+                            developerSelect.disabled = true;
+                        } 
+                        
+                        else {
+                            alert('Error updating developer');
+                        }
+                    })
+                    
+                    .catch(error => console.error('Error updating developer:', error));
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>

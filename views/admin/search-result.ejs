@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="icon" href="/images/logo.jpg" type="image/jpeg">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin/search-result.css">
+
+  <style>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      color: #06234A;
+    }
+    
+    h3 {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 20px;
+      color: #06234A;
+    }
+
+    .search_card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 5px solid #06234A;
+    }
+
+    .search_card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .search_card h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #06234A;
+    }
+
+    .task-link {
+      color: #06234A;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .task-link:hover {
+      color: #F49D37;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .search_card {
+        margin-bottom: 30px;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn ease 1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp ease 1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <%- include("../partials/admin-header.ejs") %>
+
+  <div class="container">
+    
+    <h3 class="mt-4 fade-up">Search Results</h3>
+
+    <div class="row mt-4 fade-in">
+
+      <% if (results.length > 0) { %>
+
+        <% results.forEach((result) => { %>
+
+        <div class="col-md-4 mb-4">
+
+          <div class="search_card fade-up">
+
+            <% if (result.email) { %>
+            <h4 class="criminal_name_search">Email: <%= result.email %></h4>
+            <a href="/admin-assignment/<%= result._id %>" class="task-link"><strong>Click for Details</strong></a>
+            <% } 
+            
+
+            else if (result.assignmentType) { %>
+            <h4>Assignment Type: <%= result.assignmentType %></h4>
+            <% } 
+            
+
+            else if (result.Badge_Number) { %>
+            <h4>Officer Badge Number: <%= result.Badge_Number %></h4>
+            <% } 
+            
+
+            else if (result.Witness_Name) { %>
+            <h4>Witness: <%= result.Witness_Name %></h4>
+            <% } 
+            
+
+            else if (result.Criminal_Alias_Name) { %>
+            <h4>Criminal Alias: <%= result.Criminal_Alias_Name %></h4>
+            <% } 
+            
+
+            else if (result.Suspect_Name) { %>
+            <h4>Suspect: <%= result.Suspect_Name %></h4>
+            <% } 
+            
+
+            else if (result.Evidence_Type) { %>
+            <h4>Evidence Type: <%= result.Evidence_Type %></h4>
+            <% } 
+            
+
+            else if (result.Evidence_Id) { %>
+            <h4>Evidence Id: <%= result.Evidence_Id %></h4>
+            <% } 
+            
+
+            else if (result.Sentence_Id) { %>
+            <h4>Sentence Id: <%= result.Sentence_Id %></h4>
+            <% } 
+            
+
+            else if (result.Jail_Name) { %>
+            <h4>Jail: <%= result.Jail_Name %></h4>
+            <% } 
+            
+
+            else if (result.Crime_Id) { %>
+            <h4>Crime Id: <%= result.Crime_Id %></h4>
+            <% } 
+            
+
+            else if (result.Crime_Type) { %>
+            <h4>Crime Type: <%= result.Crime_Type %></h4>
+            <% } 
+            
+
+            else if (result.Arrest_Id) { %>
+            <h4>Arrest: <%= result.Arrest_Id %></h4>
+            <% } 
+            
+
+            else if (result.Investigation_Id) { %>
+            <h4>Investigation: <%= result.Investigation_Id %></h4>
+            <% } 
+            
+
+            else if (result.Case_Id) { %>
+            <h4>Case: <%= result.Case_Id %></h4>
+            <% } 
+            
+
+            else if (result.Victim_Name) { %>
+            <h4>Victim: <%= result.Victim_Name %></h4>
+            <% } %>
+
+          </div>
+
+        </div>
+
+        <% }) %>
+
+      <% } 
+      
+      else { %>
+      
+        <div class="col">
+        
+          <p>No results found.</p>
+      
+        </div>
+
+      <% } %>
+
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <script>
+    
+    $(document).ready(function () {
+      
+      $('.fade-in').each(function (i) {
+        
+        $(this).delay(i * 150).queue(function (next) {
+          
+          $(this).addClass('animated');
+          
+          next();
+
+        });
+
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>

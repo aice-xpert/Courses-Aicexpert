@@ -1,0 +1,247 @@
+.form-group-email{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.form-group-email label {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.form-group-email input, .form-group-email select, .form-group-email textarea {
+    padding: 0.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    width: 207px;
+    height: 34px;
+    margin: 2px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group-deadline {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.form-group-deadline input, .form-group-deadline select, .form-group-deadline textarea {
+    padding: 0.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group-deadline label {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.form-group-whatsapp {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    margin-right: 58px;
+}
+
+.form-group-whatsapp label {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.iti--allow-dropdown input, .iti--allow-dropdown input[type=text], .iti--allow-dropdown input[type=tel], .iti--separate-dial-code input, .iti--separate-dial-code input[type=text], .iti--separate-dial-code input[type=tel] {
+    padding-right: 6px;
+    padding-left: 52px;
+    margin-left: 0;
+}
+
+.form-group-whatsapp input, .form-group-whatsapp select, .form-group-whatsapp textarea {
+    padding: 0.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .button-group button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #bdc3c7;
+        background-color: #ecf0f1;
+        cursor: pointer;
+        border-radius: 5px;
+        flex: -20;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        height: 34px;
+        width: 66px;
+        font-size: 7px;
+    }
+
+    .form-group-email {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        position: relative;
+        left: 129px;
+    }
+
+    .form-group-deadline {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        margin-top: 90px;
+        position: relative;
+        right: 98px;
+    }
+
+    .form-group-whatsapp {
+        /* margin-bottom: 1rem; */
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        margin-right: -123px;
+        margin-top: 4px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 415px) {
+    .button-group button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #bdc3c7;
+        background-color: #ecf0f1;
+        cursor: pointer;
+        border-radius: 5px;
+        flex: -20;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        height: 34px;
+        width: 66px;
+        font-size: 6px;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 2px;
+        margin-top: 1rem;
+    }
+
+    .form-group-email {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        position: relative;
+        left: 120px;
+    }
+
+    .form-group-deadline {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        margin-top: 90px;
+        position: relative;
+        right: 106px;
+    }
+    
+}
+
+@media (max-width: 390px) {
+    .button-group button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #bdc3c7;
+        background-color: #ecf0f1;
+        cursor: pointer;
+        border-radius: 5px;
+        flex: -20;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        height: 24px;
+        width: 52px;
+        font-size: 4.5px;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 1px;
+        margin-top: 1rem;
+    }
+
+    .form-group-email {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        position: relative;
+        left: 110px;
+    }
+
+    .form-group-deadline {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        margin-top: 90px;
+        position: relative;
+        right: 116px;
+    }
+    
+}
+
+@media (max-width: 350px) {
+    .button-group button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #bdc3c7;
+        background-color: #ecf0f1;
+        cursor: pointer;
+        border-radius: 5px;
+        flex: -20;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        height: 24px;
+        width: 46px;
+        font-size: 10px;
+        display: contents;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 1px;
+        margin-top: 1rem;
+    }
+
+    .form-group-email {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        position: relative;
+        left: 78px;
+    }
+
+    .form-group-deadline {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        margin-top: 90px;
+        position: relative;
+        right: 146px;
+    }
+
+    .form-group-whatsapp{
+        margin-right: -157px;
+    }
+
+    .extra-options {
+        margin-top: 1rem;
+        display: grid;
+    }   
+}

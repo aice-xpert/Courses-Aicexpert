@@ -1,0 +1,68 @@
+<p>Thank you for submitting your assignment request. Below are the details:</p>
+
+<body style="font-family: Arial, sans-serif; line-height: 1.6;">
+
+    <div class="container"
+        style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+
+        <h2
+            style="text-align: center; background: linear-gradient(to right, navy, white); -webkit-text-fill-color: transparent; font-weight: bold; margin-bottom: 20px;">
+            Task Details</h2>
+
+        <ul style="list-style-type: none; padding: 0;">
+
+            <li><span class="label" style="font-weight: bold;">Assignment Type:</span>
+                <%= assignmentType %>
+            </li>
+
+            <li><span class="label" style="font-weight: bold;">Exact Deadline:</span>
+                <%= exactDeadline %>
+            </li>
+
+            li><span class="label" style="font-weight: bold;">WhatsApp Number:</span>
+            <%= whatsapp%>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Additional Details:</span>
+                    <%= additionalDetails %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Total Cost:</span> Our team will contact you for the
+                    price</li>
+
+                <li><span class="label" style="font-weight: bold;">Programming Language:</span>
+                    <%= programmingLanguage || 'N/A' %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Web Development Type:</span>
+                    <%= webDevelopmentType || 'N/A' %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Full Stack Framework:</span>
+                    <%= fullStackFramework || 'N/A' %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Top Programmer:</span>
+                    <%= topProgrammer ? 'Yes' : 'No' %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Well-Commented Code:</span>
+                    <%= wellCommentedCode ? 'Yes' : 'No' %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">No Open Source:</span>
+                    <%= noOpenSource ? 'Yes' : 'No' %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">Viva Preparation:</span>
+                    <%= vivaPreparation %>
+                </li>
+
+                <li><span class="label" style="font-weight: bold;">File Url:</span>
+                    <%= fileUrl %>
+                </li>
+
+        </ul>
+    </div>
+</body>
+<p>We will contact you shortly regarding your assignment.</p>
