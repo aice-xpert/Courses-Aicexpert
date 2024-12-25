@@ -119,7 +119,7 @@ const UserSchema = new mongoose.Schema({
     googleId: {
         type: String,
         unique: true,
-        sparse: true // Use sparse index for optional unique fields 
+        sparse: true // Use sparse index for optional unique fields
     },
     name: String,
     username: { type: String, unique: true },
