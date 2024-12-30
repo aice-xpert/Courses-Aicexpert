@@ -131,14 +131,17 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.models.User || mongoose.model('User', UserSchema);
 
+require('dotenv').config();
+
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.hostinger.com',
+    port: 465,
+    secure: true,
     auth: {
-        user: 'dotaskforme@gmail.com',
-        pass: 'pont itwv rxqx bjpc'
+        user: process.env.HOSTINGER_EMAIL,
+        pass: process.env.HOSTINGER_PASSWORD
     }
 });
-
 
 // --------- Auto Login Signup Authentication ------------
 
@@ -1514,4 +1517,3 @@ app.listen(port, () => {
 });
 
 // --------------------- End ---------------------
-
