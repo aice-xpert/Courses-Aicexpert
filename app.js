@@ -53,7 +53,7 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
         httpOnly: true,
-        secure: false // Ensure this is false for local development
+        secure: false // Ensure this is false for local development 
     }
 }));
 
