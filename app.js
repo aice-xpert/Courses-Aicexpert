@@ -42,7 +42,7 @@ app.use(faviconMiddleware);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const mongoConnectionString = 'mongodb+srv://talha:tk20@cluster0.uljpq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoConnectionString = 'mongodb+srv://talha:tk20@cluster0.uljpq.mongodb.net/?retryWrites=true&w=majority';
 
 
 app.use(session({
@@ -70,7 +70,7 @@ const storage = multer.diskStorage({
 
 // --------------------- MongoDB connection ---------------------
 
-mongoose.connect('mongodb+srv://talha:tk20@cluster0.uljpq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://talha:tk20@cluster0.uljpq.mongodb.net/?retryWrites=true&w=majority', {
     ssl: true,  // Imp for deployment certificates (DNS servers)
 });
 
@@ -203,11 +203,11 @@ const drive = google.drive({ version: 'v3', auth });
 
 
 app.get('/', (req, res) => {
-    res.render("main/form");
+    res.render("main/index");
 });
 
 app.get('/form', (req, res) => {
-    res.render("main/landing-page");
+    res.render("main/form");
 });
 
 app.get('/work', (req, res) => {
@@ -219,7 +219,7 @@ app.get('/services', (req, res) => {
 });
 
 app.get('/contact-us', (req, res) => {
-    res.render("main/contact-us");
+    res.render("main/contact");
 });
 
 app.get('/team', (req, res) => {
