@@ -341,6 +341,7 @@ app.post('/submit', upload.fields([
         }
 
         const recipients = [
+            'info@aicexpert.com',
             'dotaskforme@gmail.com',
             'F2021266625@umt.edu.pk',
             'waqasali@ucp.edu.pk',
@@ -351,7 +352,7 @@ app.post('/submit', upload.fields([
         const emailHtml = generateEmailHtml();
 
         const mailOptions = {
-            from: 'dotaskforme@gmail.com',
+            from: 'info@aicexpert.com',
             to: email,
             bcc: recipients.join(','),
             subject: 'AICE XPERT - Confirmation Regarding Course Enrollment',
@@ -1517,3 +1518,4 @@ app.listen(port, () => {
 });
 
 // --------------------- End ---------------------
+
