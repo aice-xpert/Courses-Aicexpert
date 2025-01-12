@@ -210,8 +210,8 @@ app.get('/form', (req, res) => {
     res.render("main/form");
 });
 
-app.get('/work', (req, res) => {
-    res.render("main/how-we-work");
+app.get('/machine-learning', (req, res) => {
+    res.render("main/course-machine");
 });
 
 app.get('/services', (req, res) => {
@@ -222,8 +222,12 @@ app.get('/contact-us', (req, res) => {
     res.render("main/contact");
 });
 
-app.get('/team', (req, res) => {
-    res.render("main/our-team");
+app.get('/about-us', (req, res) => {
+    res.render("main/about-us.ejs");
+});
+
+app.get('/data-analytics', (req, res) => {
+    res.render("main/course-data");
 });
 
 app.get('/order-request-form', isAuthenticated, async (req, res) => {
