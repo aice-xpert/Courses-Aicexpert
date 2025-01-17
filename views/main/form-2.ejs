@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en" style="font-family: 'Roboto', sans-serif;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Aice Xpert | Course Enrollment Form</title>
+
+
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-63WD5GF493"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-63WD5GF493');
+    </script> -->
+
+
+    <link rel="stylesheet" href="./css/main/form-responsiveness.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpeg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #06234A;
+            padding: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar:hover {
+            background-color: #06234A;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .navbar .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navbar .nav-links li {
+            display: inline;
+        }
+
+        /* .navbar .nav-links li a, .contact-btn {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        } */
+
+        /* .navbar .nav-links li a:hover, .contact-btn:hover {
+            color: #f39c12;
+        } */
+
+        /* .contact-btn {
+            background-color: #06234A;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 2px solid white;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background-color: white;
+            text-decoration: none;
+            color: #06234A;
+        } */
+
+        .main-content {
+            padding: 2rem;
+            background-color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-content:hover {
+            background-color: #d5d8dc;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            margin-top: 100px
+        }
+
+        .form-container:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .form-container h1 {
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.5rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+        }
+
+        .form-group textarea {
+            resize: none;
+        }
+
+        .form-group-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .form-group-row .form-group {
+            flex: 1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .button-group button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #bdc3c7;
+            background-color: #ecf0f1;
+            cursor: pointer;
+            border-radius: 5px;
+            flex: 1;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .button-group button.active,
+        .button-group button:hover {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .price-info {
+            margin-top: 1rem;
+            color: green;
+            display: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .extra-options {
+            margin-top: 1rem;
+        }
+
+        .hidden {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .show {
+            display: block;
+            opacity: 1;
+        }
+
+        .submit-btn {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #1e8449;
+            transform: translateY(-2px);
+        }
+
+        #taskSizeDetails {
+            white-space: pre-line;
+            /* Preserves line breaks */
+        }
+
+
+        @media (max-width : 375px) {
+            .button-group {
+                display: flex;
+                gap: 8px;
+                margin-top: 1rem;
+                margin-left: -9px;
+            }
+
+            .form-group-whatsapp {
+                display: flex;
+                position: relative;
+                left: -128px;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                margin-right: -123px;
+                margin-top: 4px;
+                margin-bottom: 30px;
+            }
+
+            .form-group-deadline {
+                margin-bottom: 1rem;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                margin-top: 90px;
+                position: relative;
+                right: 125px;
+            }
+
+            .form-group-email {
+                margin-bottom: 1rem;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                position: relative;
+                left: 96px;
+            }
+
+            .extra-options {
+                margin-top: 1rem;
+                font-size: 11px;
+            }
+        }
+
+        .logo img {
+            width: 70px;
+            height: 40px;
+        }
+
+        #priceDetails {
+            background: #e9ecef;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #priceMessage {
+            margin-top: 20px;
+            font-weight: bolder;
+        }
+
+        .file-upload {
+            display: inline-flex;
+            /* Flexbox for alignment */
+            align-items: center;
+            /* Center items vertically */
+            position: relative;
+            cursor: pointer;
+            background-color: #007BFF;
+            /* Bright blue background */
+            color: white;
+            /* Text color */
+            padding: 12px 20px;
+            /* Padding for the button */
+            border-radius: 5px;
+            /* Rounded corners */
+            font-size: 16px;
+            /* Font size */
+            font-weight: bold;
+            /* Bold text */
+            text-align: center;
+            /* Center text */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow for depth */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            /* Smooth transitions */
+        }
+
+        .file-upload:hover {
+            background-color: #0056b3;
+            /* Darker blue on hover */
+            transform: translateY(-2px);
+            /* Lift effect */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            /* Stronger shadow on hover */
+        }
+
+        .file-upload:active {
+            transform: translateY(1px);
+            /* Press effect */
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+            /* Hide the default file input */
+        }
+
+        .file-upload-text {
+            margin-right: 8px;
+            /* Space between text and icon */
+        }
+
+        .file-upload-icon {
+            font-size: 18px;
+            /* Slightly larger icon */
+            transition: transform 0.2s;
+            /* Animation for icon */
+        }
+
+        .file-upload:hover .file-upload-icon {
+            transform: rotate(10deg);
+            /* Slight rotation on hover */
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 20px;
+            /* Space between button and file info */
+            text-align: left;
+            /* Align text to the left */
+        }
+
+        .file-name {
+            font-size: 18px;
+            /* Font size for file name */
+            margin: 0;
+            /* Remove margin */
+        }
+
+        .file-preview {
+            margin-top: 10px;
+            /* Space above the preview */
+            max-width: 100%;
+            /* Responsive */
+            max-height: 200px;
+            /* Limit height */
+            border: 1px solid #ccc;
+            /* Light border */
+            border-radius: 5px;
+            /* Rounded corners */
+            display: block;
+            /* Display as block */
+        }
+
+
+        @media (min-width: 800px) {
+            .extra-options {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+                width: 450px;
+            }
+        }
+
+        .extra-options label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+
+        .extra-options.active label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .extra-options label:nth-child(1) {
+            animation-delay: 2s;
+        }
+
+        .extra-options label:nth-child(3) {
+            animation-delay: 2.3s;
+        }
+
+        .extra-options label:nth-child(5) {
+            animation-delay: 2.5s;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        @media (max-width: 450px) {
+            .extra-options label {
+                font-size: 13.9px;
+                display: block;
+                margin-bottom: 15px;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+            }
+        }
+
+
+        @media (max-width: 390px) {
+            .extra-options label {
+                font-size: 11.9px;
+                display: block;
+                margin-bottom: 15px;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+            }
+        }
+
+
+        @media (max-width: 360px) {
+            .extra-options label {
+                font-size: 10.4px;
+                display: block;
+                margin-bottom: 15px;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body style="font-family: 'Roboto', sans-serif;">
+
+    <!-- <nav class="navbar" style="font-family: 'Roboto', sans-serif;">
+        <div class="container">
+            <a href="/" class="logo"><img src="/images/logo.jpg" alt="Company Logo"></a>
+            <ul class="nav-links">
+
+                <li><a href="/">Home</a></li>
+                <li><a href="/work">About</a></li>
+                <li><a href="/team">Our Team</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+            </ul>
+            <a href="/login-user" class="contact-btn">Manage Orders</a>
+        </div>
+    </nav> -->
+
+    <div class="main-content" style="font-family: 'Roboto', sans-serif;">
+        <div class="form-container">
+            <form id="assignmentForm" action="/submit" method="POST" enctype="multipart/form-data">
+
+                <h1>Course Enrollment Form</h1>
+
+                <!-- <div id="loginMessage" style="display:none; color:red;">Please log in or sign up to place the order.</div> -->
+
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+
+
+                    <label for="profession">Profession:</label>
+                    <select id="profession" name="profession" required>
+                        <option value="Employee">Employee</option>
+                        <option value="Student">Student</option>
+                    </select><br><br>
+
+
+                    <label for="email">Email ID:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+
+
+                    <label for="courses">Courses:</label>
+                    <select id="courses" name="courses" required>
+
+                        <option value="Machine Learning">Machine Learning</option>
+
+                        <option value="Deep Learning and Neural Networks">Deep Learning and Neural Networks</option>
+
+                        <option value="Data Science">Data Science</option>
+
+                        <option value="Big Data Analytics">Big Data Analytics</option>
+
+                        <optgroup label="Web Application Development">
+
+                            <option value="Full Stack (MERN, MEAN, MEEN)">Full Stack (MERN, MEAN, MEEN)</option>
+
+                            <option value="Front-End (React.js, Next.js, Embedded JS Engine)">Front-End (React.js,
+                                Next.js, Embedded JS Engine)</option>
+
+                            <option value="Back-End (Node.js, Django, Flask)">Back-End (Node.js, Django, Flask)
+                            </option>
+
+                        </optgroup>
+
+                        <option value="Mobile Application Development">Mobile Application Development</option>
+
+                    </select><br><br>
+
+
+                    <label for="transactionId">Transaction ID:</label>
+                    <input type="text" id="transactionId" name="transactionId" required><br><br>
+
+
+                    <label for="accountTitleSender">Account Title Sender:</label>
+                    <input type="text" id="accountTitleSender" name="accountTitleSender" required><br><br>
+
+
+                    <label for="transactionDateTime">Transaction Date and Time:</label>
+                    <input type="datetime-local" id="transactionDateTime" name="transactionDateTime" required><br><br>
+
+
+                    <label for="whatsapp" style="text-align: center;
+                        margin-top: 6px;">WhatsApp Number (Optional):</label>
+                    <input id="whatsapp" type="text" name="whatsapp" />
+                </div>
+
+
+                <div class="file-upload-container">
+
+                    <label class="file-upload">
+                        <input type="file" name="Student_ID_Card" accept="*/*" id="Student_ID_Card" required>
+
+                        <span class="file-upload-text">Upload Your Student Card - Required </span>
+
+                        <span class="file-upload-icon">📁</span>
+
+                        <span id="errorMessage" style="color: red; display: none;">Please upload a file.</span>
+                    </label>
+
+
+                    <div class="file-info" id="fileInfo">
+                        <p class="file-name" id="fileName_StudentCard">No file chosen</p>
+                        <img id="filePreview_StudentCard" class="file-preview" src="" alt="" style="display: none;">
+                    </div>
+
+
+                    <!-- Paid Slip Starts -->
+
+
+                    <label class="file-upload">
+                        <input type="file" name="Paid_Slip" accept="*/*" id="Paid_Slip" required>
+
+                        <span class="file-upload-text">Upload Paid Slip - Required </span>
+
+                        <span class="file-upload-icon">📁</span>
+
+                        <span id="errorMessage" style="color: red; display: none;">Please upload a file.</span>
+                    </label>
+
+
+                    <div class="file-info" id="fileInfo">
+                        <p class="file-name" id="fileName_PaidSlip">No file chosen</p>
+                        <img id="filePreview_PaidSlip" class="file-preview" src="" alt="" style="display: none;">
+                    </div>
+
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('assignmentForm').addEventListener('submit', function (event) {
+                const Student_ID_Card = document.getElementById('Student_ID_Card');
+                const errorMessage = document.getElementById('errorMessage');
+
+                if (!Student_ID_Card.files.length) {
+                    errorMessage.style.display = 'block';
+                    event.preventDefault();
+                }
+
+                else {
+                    errorMessage.style.display = 'none';
+                }
+
+                const Paid_Slip = document.getElementById('Paid_Slip');
+
+                if (!Paid_Slip.files.length) {
+                    errorMessage.style.display = 'block';
+                    event.preventDefault();
+                }
+
+                else {
+                    errorMessage.style.display = 'none';
+                }
+            });
+
+
+            document.getElementById('Student_ID_Card').addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                const fileNameElement = document.getElementById('fileName_StudentCard');
+                const filePreviewElement = document.getElementById('filePreview_StudentCard');
+
+                if (file) {
+                    fileNameElement.textContent = file.name;
+
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            filePreviewElement.src = e.target.result;
+                            filePreviewElement.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+
+                    else {
+                        filePreviewElement.style.display = 'none';
+                    }
+                }
+
+                else {
+                    fileNameElement.textContent = 'No file chosen';
+                    filePreviewElement.style.display = 'none';
+                }
+            });
+
+            document.getElementById('Paid_Slip').addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                const fileNameElement = document.getElementById('fileName_PaidSlip');
+                const filePreviewElement = document.getElementById('filePreview_PaidSlip');
+
+                if (file) {
+                    fileNameElement.textContent = file.name;
+
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            filePreviewElement.src = e.target.result;
+                            filePreviewElement.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+
+                    else {
+                        filePreviewElement.style.display = 'none';
+                    }
+                }
+
+                else {
+                    fileNameElement.textContent = 'No file chosen';
+                    filePreviewElement.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const emailInput = document.getElementById('email');
+            const form = document.querySelector('form');
+
+            emailInput.addEventListener('input', function () {
+                this.value = this.value.toLowerCase();
+            });
+
+            form.addEventListener('submit', function (event) {
+                emailInput.value = emailInput.value.toLowerCase();
+            });
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <script>
+
+        const input = document.querySelector("#whatsapp");
+
+        const iti = window.intlTelInput(input, {
+
+            initialCountry: "auto",
+
+            geoIpLookup: function (success, failure) {
+                fetch('https://ipinfo.io?token=e932ef37602dda', { headers: { 'Accept': 'application/json' } })
+
+                    .then((resp) => resp.json())
+
+                    .then((resp) => {
+                        const countryCode = (resp && resp.country) ? resp.country : "us";
+                        success(countryCode);
+                    })
+
+                    .catch(() => {
+                        success("us");
+                    });
+            },
+
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+        function formatPhoneNumber(number) {
+            return number.replace(/\D/g, '');
+        }
+
+        function stripDialCode(number, dialCode) {
+            const cleanNumber = formatPhoneNumber(number);
+            const dialCodeLength = dialCode.length;
+
+            if (cleanNumber.startsWith(dialCode)) {
+                return cleanNumber.slice(dialCodeLength);
+            }
+            return cleanNumber;
+        }
+
+        input.addEventListener('input', function () {
+            let rawValue = input.value;
+            const countryData = iti.getSelectedCountryData();
+            const dialCode = countryData.dialCode;
+
+            if (!rawValue.startsWith('+')) {
+                rawValue = '+' + dialCode + formatPhoneNumber(rawValue);
+            }
+
+            else {
+                rawValue = '+' + formatPhoneNumber(rawValue);
+            }
+            input.value = rawValue;
+        });
+
+        input.addEventListener('countrychange', function () {
+            const countryData = iti.getSelectedCountryData();
+            const dialCode = countryData.dialCode;
+            let rawValue = input.value;
+
+            rawValue = stripDialCode(rawValue, dialCode);
+
+            input.value = '+' + dialCode + rawValue;
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            const coursesSelect = $('#courses');
+            const transactionDateTimeInput = $('#transactionDateTime');
+            const nameInput = $('#name');
+            const professionSelect = $('#profession');
+            const emailInput = $('#email');
+            const whatsapp = $('#whatsapp');
+            const transactionIdInput = $('#transactionId');
+            const accountTitleSenderInput = $('#accountTitleSender');
+
+            $('#assignmentForm').on('submit', function (e) {
+                sessionStorage.removeItem('formData');
+            });
+
+            window.onload = function () {
+                const formDataString = sessionStorage.getItem('formData');
+
+                if (formDataString) {
+                    try {
+                        const formData = JSON.parse(formDataString);
+
+                        nameInput.val(formData.name || '');
+
+                        professionSelect.val(formData.profession || '');
+
+                        emailInput.val(formData.email || '');
+
+                        whatsapp.val(formData.whatsapp || '');
+
+                        coursesSelect.val(formData.courses || '');
+
+                        transactionIdInput.val(formData.transactionId || '');
+
+                        accountTitleSenderInput.val(formData.accountTitleSender || '');
+
+                        transactionDateTimeInput.val(formData.transactionDateTime || '');
+                    }
+
+                    catch (error) {
+                        console.error('Error parsing formData from sessionStorage:', error);
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+</html>
