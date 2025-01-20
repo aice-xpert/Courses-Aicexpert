@@ -3285,7 +3285,7 @@ div#bootcarousel {
   content: "";
   height: 100%;
   width: 100%;
-  background: url(assets/img/shape-bg.png);
+  background: url(../../../images/main-images/shape-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -3623,7 +3623,7 @@ div#bootcarousel {
 
 
 .course-details-area .course-list-items ul {
-  background-image: url('./assets/img/BG4-1.png');
+  background-image: url('../../../images/main-images/BG4-1.png');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 20px;
@@ -3738,7 +3738,7 @@ div#bootcarousel {
   text-align: center;
   border: 1px solid #2e343b;
   padding: 50px;
-  background-image: url(./assets/img/BG4-1.png);
+  background-image: url(../../../images/main-images/BG4-1.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -6538,7 +6538,7 @@ i.fas.fa-clock {
   left: 0;
   top: 0;
   content: "";
-  background: url(assets/img/dotted-bg.png);
+  background: url(../../../images/main-images/dotted-bg.png);
   height: 100%;
   width: 100%;
   z-index: -1;
