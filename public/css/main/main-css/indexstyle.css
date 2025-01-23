@@ -1041,7 +1041,7 @@ nav.navbar.bootsnav.sticked .attr-nav.social li {
 
 .top-bar-area .link li:last-child a {
   border-color: transparent;
-  background: #ffb606;
+  /* background: #ffb606; */
   color: #002147;
 }
 
