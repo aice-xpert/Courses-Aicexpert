@@ -365,7 +365,7 @@ app.post('/submit', upload.fields([
 
         await transporter.sendMail(mailOptions);
 
-        res.redirect("/");
+        res.redirect("https://courses-aicexpert.vercel.app/index.html");
     }
 
     catch (error) {
